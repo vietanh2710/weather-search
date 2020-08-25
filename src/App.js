@@ -4,7 +4,7 @@ import Titles from "./components/Titles";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
 
-const API_KEY = "3585775f387b0d0cba6c5b3dc41b8167";
+const API_KEY = "a646d7e1436be5a230dfd1164607b10b";
 
 class App extends React.Component {
   state = {
@@ -21,6 +21,7 @@ class App extends React.Component {
     const country = e.target.elements.country.value;
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);
     const data = await api_call.json();
+    console.log(data)
     if (city && country) {
       this.setState({
         temperature: data.main.temp,
